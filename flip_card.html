@@ -1,0 +1,214 @@
+<html>
+<head>
+    <meta charset ="utf-8">
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="ha.js"></script>
+    <script src="jquery.flip.min.js"></script>
+    <style>
+        #progressBar {
+            width: 90%;
+            margin: 10px auto;
+            height: 22px;
+            background-color: #0A5F44;
+        }
+        #progressBar div {
+            height: 100%;
+            text-align: right;
+            padding: 0 10px;
+            line-height: 22px; /* same as #progressBar height if we want text middle aligned */
+            width: 0;
+            background-color: #CBEA00;
+            box-sizing: border-box;
+        }
+        .img{
+            height: 100;
+            width: 100;
+        }
+        .padding{
+            padding: 10px;
+        }
+        .flip {
+            height: 100px;
+            width: 100px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="progressBar">
+        <div class="bar"></div>
+    </div>
+    <div class="container">
+        <div class="row padding">
+            <div class="col">
+                <div class="flip" id="img1"> 
+                    <div class="front"> 
+                        <img src="shape/image.png" class="img">
+                    </div> 
+                    <div class="back">
+                        <img src="shape/3d.png" class="img">
+                    </div> 
+                </div>
+            </div>
+            <div class="col">
+                <div class="flip" id="img2"> 
+                    <div class="front"> 
+                        <img src="shape/image.png" class="img">
+                    </div> 
+                    <div class="back">
+                        <img src="shape/3d.png" class="img">
+                    </div> 
+                </div>
+            </div>
+            <div class="col">
+                <div class="flip" id="img3"> 
+                    <div class="front"> 
+                        <img src="shape/image.png" class="img">
+                    </div> 
+                    <div class="back">
+                        <img src="shape/3d.png" class="img">
+                    </div> 
+                </div>
+            </div>
+            <div class="col">
+                <div class="flip" id="img4"> 
+                    <div class="front"> 
+                        <img src="shape/image.png" class="img">
+                    </div> 
+                    <div class="back">
+                        <img src="shape/3d.png" class="img">
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <div class="row padding">
+            <div class="col">
+                <div class="flip" id="img5"> 
+                    <div class="front"> 
+                        <img src="shape/image.png" class="img">
+                    </div> 
+                    <div class="back">
+                        <img src="shape/3d.png" class="img">
+                    </div> 
+                </div>
+            </div>
+            <div class="col">
+                <div class="flip" id="img6"> 
+                    <div class="front"> 
+                        <img src="shape/image.png" class="img">
+                    </div> 
+                    <div class="back">
+                        <img src="shape/3d.png" class="img">
+                    </div> 
+                </div>
+            </div>
+            <div class="col">
+                <div class="flip" id="img7"> 
+                    <div class="front"> 
+                        <img src="shape/image.png" class="img">
+                    </div> 
+                    <div class="back">
+                        <img src="shape/3d.png" class="img">
+                    </div> 
+                </div>
+            </div>
+            <div class="col">
+                <div class="flip" id="img8"> 
+                    <div class="front"> 
+                        <img src="shape/image.png" class="img">
+                    </div> 
+                    <div class="back">
+                        <img src="shape/3d.png" class="img">
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <div class="row padding">
+            <div class="col">
+                <div class="flip" id="img9"> 
+                    <div class="front"> 
+                        <img src="shape/image.png" class="img">
+                    </div> 
+                    <div class="back">
+                        <img src="shape/3d.png" class="img">
+                    </div> 
+                </div>
+            </div>
+            <div class="col">
+                <div class="flip" id="img10"> 
+                    <div class="front"> 
+                        <img src="shape/image.png" class="img">
+                    </div> 
+                    <div class="back">
+                        <img src="shape/3d.png" class="img">
+                    </div> 
+                </div>
+            </div>
+            <div class="col">
+                <div class="flip" id="img11"> 
+                    <div class="front"> 
+                        <img src="shape/image.png" class="img">
+                    </div> 
+                    <div class="back">
+                        <img src="shape/3d.png" class="img">
+                    </div> 
+                </div>
+            </div>
+            <div class="col">
+                <div class="flip" id="img12"> 
+                    <div class="front"> 
+                        <img src="shape/image.png" class="img">
+                    </div> 
+                    <div class="back">
+                        <img src="shape/3d.png" class="img">
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <div class="row padding">
+            <div class="col">
+                <div class="flip" id="img13"> 
+                    <div class="front"> 
+                        <img src="shape/image.png" class="img">
+                    </div> 
+                    <div class="back">
+                        <img src="shape/3d.png" class="img">
+                    </div> 
+                </div>
+            </div>
+            <div class="col">
+                <div class="flip" id="img14"> 
+                    <div class="front"> 
+                        <img src="shape/image.png" class="img">
+                    </div> 
+                    <div class="back">
+                        <img src="shape/3d.png" class="img">
+                    </div> 
+                </div>
+            </div>
+            <div class="col">
+                <div class="flip" id="img15"> 
+                    <div class="front"> 
+                        <img src="shape/image.png" class="img">
+                    </div> 
+                    <div class="back">
+                        <img src="shape/3d.png" class="img">
+                    </div> 
+                </div>
+            </div>
+            <div class="col">
+                <div class="flip" id="img16"> 
+                    <div class="front"> 
+                        <img src="shape/image.png" class="img">
+                    </div> 
+                    <div class="back">
+                        <img src="shape/3d.png" class="img">
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
