@@ -7,8 +7,7 @@ function progress(timeleft, timetotal, $element) {
         }, 1000);
     }
     else{
-        alert("You LOSE!!!");
-        location.reload();
+        $(".status").text("YOU LOSE!");
     }
 };
 function shuffle(array) {
@@ -49,7 +48,7 @@ var previous_click_id = "";
 var item_count = 16;
 
 $(document).ready(function() {
-    progress(20, 20, $('#progressBar'));
+    progress(10, 10, $('#progressBar'));
     random_select_img(file_list);
 
     $(function(){
@@ -57,7 +56,15 @@ $(document).ready(function() {
             trigger: 'hover'
         });
     });
-    
+
+    $("#btn_restart").click(function() {
+        location.reload();
+    });
+
+    $("#btn_back").click(function() {
+        window.location.href = "status.html";
+    });
+
     $(".flip" ).click(function() {
         var cur_click_id = $(this).attr('id');
         if (previous_click_id) {
@@ -69,8 +76,7 @@ $(document).ready(function() {
                 previous_click_id = "";
                 item_count -= 2;
                 if (item_count == 0){
-                    alert("FINISH!!!");
-                    location.reload();
+                    $(".status").text("YOU LOSE!");
                 }
             }
             else{
