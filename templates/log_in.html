@@ -141,7 +141,8 @@
     <script>
         $(document).ready(function() {
             $("#log_in_btn").click(function(){
-                window.location.href = "status.html";
+                var user_id = $("#log_in_input").val();
+                window.location.href = "/status?" + "user_id="+user_id + "&letter_process=0" + "&shape_process=0";
             });
         });
     </script>

@@ -1,0 +1,73 @@
+<html>
+<head>
+    <meta charset ="utf-8">
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script type="text/javascript" src="{{ url_for('static', filename = 'status.js') }}"></script>
+    <style>
+        .progress{
+            margin: 15px;
+        }
+        .user_id{
+            text-align: center;
+        }
+        .progress-bar{
+            font-size: 24px;
+            font-weight: bolder;
+            color:gold;
+        }
+        .font_small{
+            position: relative;
+            top: 6px;
+            right:40px;
+            font-size: 22px;
+            margin: 11px;
+            font-weight: bolder;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var user_id = {{user_id|tojson}};
+        var letter_process = {{letter_process|tojson}};
+        var shape_process = {{shape_process|tojson}};
+    </script>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2 user_id">
+                <img src="/static/other/user_head.png" height="130px" width="130px">
+                <br>
+                <span id="user_name"></span>
+            </div>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-1">
+                <span class="badge badge-primary font_small">Letter :</span>
+                <br>
+                <span class="badge badge-primary font_small">Shape :</span>
+            </div>
+            <div class="col-md-8">
+                <div class="progress" style="height: 45px;">
+                    <div class="progress-bar progress-bar-striped" id="pb-letter" role="progressbar"
+                     aria-valuemax="100" style="width:0%">
+                    </div>
+                </div>
+                <div class="progress" style="height: 45px;">
+                    <div class="progress-bar progress-bar-striped" id="pb-shape" role="progressbar"
+                    aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            
+        </div>
+    </div>
+
+</body>

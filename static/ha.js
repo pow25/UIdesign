@@ -7,7 +7,7 @@ function progress(timeleft, timetotal, $element) {
         }, 1000);
     }
     else{
-        $(".status").text("YOU LOSE!");
+        
     }
 };
 function shuffle(array) {
@@ -57,14 +57,6 @@ $(document).ready(function() {
         });
     });
 
-    $("#btn_restart").click(function() {
-        location.reload();
-    });
-
-    $("#btn_back").click(function() {
-        window.location.href = "status.html";
-    });
-
     $(".flip" ).click(function() {
         var cur_click_id = $(this).attr('id');
         if (previous_click_id) {
@@ -76,7 +68,7 @@ $(document).ready(function() {
                 previous_click_id = "";
                 item_count -= 2;
                 if (item_count == 0){
-                    $(".status").text("YOU LOSE!");
+                    
                 }
             }
             else{
