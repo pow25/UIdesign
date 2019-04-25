@@ -34,7 +34,7 @@ function random_select_img(file_list) {
     arr = shuffle(arr);
     for(var i = 0; i < 8; ++i){
         var cur_file = file_list[Math.floor(Math.random() * 10)];
-        cur_file = "shape/" + cur_file;
+        cur_file = "/static/shape/" + cur_file;
         $("#img"+arr[i].toString()).find(".back img").attr("src",cur_file);
         $("#img"+arr[i+8].toString()).find(".back img").attr("src",cur_file);
     }
@@ -48,7 +48,7 @@ var previous_click_id = "";
 var item_count = 16;
 
 $(document).ready(function() {
-    progress(10, 10, $('#progressBar'));
+    progress(time_game, time_game, $('#progressBar'));
     random_select_img(file_list);
 
     $(function(){

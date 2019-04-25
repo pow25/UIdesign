@@ -22,6 +22,10 @@ def status():
 def before_shape():
     return render_template("before_shape.html")
 
+@app.route("/flip_card/<seconds>")
+def flip_card(seconds):
+    return render_template("flip_card.html",seconds=seconds)
+
 @app.route("/after_shape")
 def after_shape():
     return render_template("after_shape.html")
