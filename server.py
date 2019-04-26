@@ -9,6 +9,7 @@ shape_level = 1
 shape_process = 0
 letter_process = 0
 letter_level = 1 
+user_id=""
 
 @app.route('/index')
 def log_in():
@@ -16,7 +17,11 @@ def log_in():
 
 @app.route("/status")
 def status():
-    user_id = request.args.get('user_id')
+    global user_id
+    
+    if user_id=="":
+        user_id = request.args.get('user_id')
+    
     return render_template("status.html",user_id=user_id,letter_process=letter_process,shape_process=shape_process)
 
 @app.route("/before_shape")
@@ -31,9 +36,9 @@ def before_letter():
 def flip_card(seconds):
     return render_template("flip_card.html",seconds=seconds)
 
-@app.route("/after_shape")
-def after_shape():
-    return render_template("after_shape.html")
+@app.route("/after_shape/<score>")
+def after_shape(score):
+    return render_template("after_shape.html",score=score,seconds=shape_seconds[int(shape_level)-1])
 
 @app.route("/after_letter")
 def after_letter():
@@ -47,11 +52,9 @@ def update_process():
     global letter_level
     json_data = request.get_json()
     
-    json_data["rank"] = count_rank
-    data.append(json_data)
     result = {}
-    result["url"] = "http://127.0.0.1:5000/Item/"+str(count_rank)
+    result["url"] = "http://127.0.0.1:5000/Item/"
     return json.dumps(result)
-    
+
 if __name__ == '__main__':
    app.run(debug = True)

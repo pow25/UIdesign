@@ -10,8 +10,21 @@
     </style>
 </head>
 <body>
-    Your score:XXX
-    <button>restart</button>
-    <button>exit</button>
+    <h1 id="score"></h1>
+    <button id="btn_restart">restart</button>
+    <button id="btn_exit">exit</button>
 </body>
+<script>
+    score = {{score|tojson}};
+    time={{seconds|tojson}};
+    $(document).ready(function() {
+        $("#score").text("Your score is:"+score+"/16");
+        $("#btn_exit").click(function(){
+            window.location.href = "/status";
+        });
+        $("#btn_restart").click(function(){
+            window.location.href = "/flip_card/"+time;
+        });
+    });
+</script>
 </html>

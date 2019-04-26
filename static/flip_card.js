@@ -7,7 +7,7 @@ function progress(timeleft, timetotal, $element) {
         }, 1000);
     }
     else{
-        
+        window.location.href="/after_shape/"+ parseInt(16-item_count, 10);
     }
 };
 function shuffle(array) {
@@ -68,7 +68,7 @@ $(document).ready(function() {
                 previous_click_id = "";
                 item_count -= 2;
                 if (item_count == 0){
-                    
+                    window.location.href="/after_shape/16";
                 }
             }
             else{

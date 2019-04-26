@@ -28,12 +28,9 @@
             <h2>Training subject: Shape</h2>
         </div>
         <div class="row padding">
-            <span>
-                <h3>Time:xxx seconds</h3>
-            </span>
-            <span>
-                <h3>Level:1</h3>
-            </span>
+            <span id="time"></span>
+            <br>
+            <span id="level"></span>
         </div>
         <div class="row padding">
             <h3>Type:flipping-cards</h3>
@@ -49,11 +46,26 @@
         </div>
         <div class="row">
             <div class="col">
-                <button>BACK</button>
+                <button id="btn_back">BACK</button>
             </div>
             <div class="col">
-                <button>START</button>
+                <button id="btn_start">START</button>
             </div>
         </div>
     </div>
 </body>
+<script>
+    level = {{level|tojson}};
+    time = {{seconds|tojson}};
+    $(document).ready(function() {
+        $("#time").text("Time:"+time+" seconds");
+        $("#level").text("Level:"+level);
+        $("#btn_back").click(function(){
+            window.location.href = "/status";
+        });
+        $("#btn_start").click(function(){
+            window.location.href = "/flip_card/"+time;
+        });
+    });
+</script>
+</html>
