@@ -1,0 +1,94 @@
+<html>
+<head>
+    <meta charset ="utf-8">
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script type="text/javascript" src="{{ url_for('static', filename = 'letter.js') }}"></script>
+    <style>
+        .blue{
+            background-color: aquamarine;
+            font-size: 40px;
+            font-weight: bolder;
+            padding: 15px;
+        }
+        #instruction{
+            font-size:40px;
+            font-weight: bold;
+            text-align: center;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        #gif{
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            height: 300px;
+            width: 300px;
+        }
+        .border_light{
+            border:2px solid darkgray; 
+        }
+        .dark{
+            background-color: gray; 
+        }
+        .border_darker{
+            border:2px solid black; 
+        }
+        .answer{
+            height: 100px;
+            width: 320px;
+            padding: 10px;
+            border: 5px solid gray;
+            margin: 0; 
+            font-size: 40px;
+            color: gray;
+            font-weight: lighter;
+        }
+        .answer_letter{
+            font-weight: bolder;
+            color: black;
+            padding-right:10px;
+        }
+        .btn{
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        level = {{level|tojson}};
+        answer={{answer|tojson}};
+    </script>
+    
+    <div class="contain">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="blue">choose letter</div>
+                <div id="names"></div>
+            </div>
+            <div class="col-md-6">
+                <img id="gif" src="/static/other/play.png">
+                <div id="instruction">Click To Play</div>
+            </div>
+            <div class="col-md-3">
+                <div class="blue">choose letter</div>
+                <div id="names2"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 answer">
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        <div class="row">
+            <div class="col btn">
+                <button id="btn_clear">Clear</button>
+                <button id="btn_submit">Submit</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
