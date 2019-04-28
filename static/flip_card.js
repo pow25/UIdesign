@@ -53,28 +53,37 @@ $(document).ready(function() {
 
     $(function(){
         $(".flip").flip({
-            trigger: 'hover'
+            trigger: 'manual'
         });
     });
 
     $(".flip" ).click(function() {
+        $(this).flip(true);
         var cur_click_id = $(this).attr('id');
         if (previous_click_id) {
             var prev_addr = $("#"+previous_click_id).find(".back img").attr('src');
             var cur_addr = $("#"+cur_click_id).find(".back img").attr('src');
             if (cur_addr == prev_addr && cur_click_id!=previous_click_id){
-                $("#"+previous_click_id).remove();
-                $("#"+cur_click_id).remove();
-                previous_click_id = "";
-                item_count -= 2;
-                if (item_count == 0){
-                    window.location.href="/after_shape/16";
-                }
+                setTimeout(function(){
+                    $("#"+previous_click_id).remove();
+                    $("#"+cur_click_id).remove();                
+                    previous_click_id = "";
+                    item_count -= 2;
+                    if (item_count == 0){
+                        window.location.href="/after_shape/16";
+                    }
+                }, 300);
+            
             }
             else{
-                $("#"+previous_click_id).effect( "shake" );
-                $("#"+cur_click_id).effect("shake");
-                previous_click_id = "";
+                setTimeout(function(){
+                    $("#"+previous_click_id).effect( "shake" );
+                    $("#"+cur_click_id).effect("shake");
+                    $("#"+previous_click_id).flip(false);
+                    $("#"+cur_click_id).flip(false);
+                    previous_click_id = "";
+                }, 300);
+
             }
         }
         else{
