@@ -18,6 +18,22 @@
     score = {{score|tojson}};
     time={{seconds|tojson}};
     $(document).ready(function() {
+        $.ajax({
+            type: "POST",
+            url: "/update_process",                
+            dataType : "json",
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify({"score":score,"type":"shape"}),
+            success: function(result){
+                
+            },
+            error: function(request, status, error){
+                console.log("Error");
+                console.log(request)
+                console.log(status)
+                console.log(error)
+            }
+        });
         $("#score").text("Your score is:"+score+"/16");
         $("#btn_exit").click(function(){
             window.location.href = "/status";
@@ -25,6 +41,7 @@
         $("#btn_restart").click(function(){
             window.location.href = "/flip_card/"+time;
         });
+
     });
 </script>
 </html>

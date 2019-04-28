@@ -52,7 +52,15 @@ $(document).ready(function() {
     answer = answer[filename_gif];
     var user_answer=[];
     $(".answer").droppable({
-
+        classes: {
+            "ui-droppable-active": "ui-state-highlight"
+        },
+        over: function( event, ui ) { 
+            $(this).css("border","5px solid black");
+        },
+        out: function( event, ui ) {
+            $(this).css("border","5px solid gray");;
+        },
         drop:function (event,ui) {
             //get dropped name
             var drop_name = $(ui.draggable).attr('id');

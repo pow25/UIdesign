@@ -4,7 +4,8 @@ from flask import Response, request, jsonify
 import json
 app = Flask(__name__)
 
-shape_seconds = ["40","30","20"]
+shape_seconds = ["35","30","25"]
+letter_max_score = [5,7,10]
 shape_level = 1
 shape_process = 0
 letter_process = 0
@@ -56,9 +57,40 @@ def update_process():
     global letter_process
     global letter_level
     json_data = request.get_json()
-    
+    score = int(json_data["score"])
     result = {}
-    result["url"] = "http://127.0.0.1:5000/Item/"
+    if json_data["type"]=="shape":
+        increased_amount = shape_level*10*score/16
+        if shape_process + increased_amount >= 100:
+            result["increase"] = 100 - shape_process
+        else:
+            result["increase"] = increased_amount
+        
+        if score == 16:
+            if shape_level != 3:
+                shape_level += 1
+                result["level"] = "u"+str(shape_level)
+            else:
+                result["level"] = "m"
+        else:
+            result["level"] = "n"
+    else:
+        increased_amount = letter_level*10*score/letter_max_score[letter_level-1]
+        if shape_process + increased_amount >= 100:
+            result["increase"] = 100 - shape_process
+        else:
+            result["increase"] = increased_amount
+
+        if letter_max_score[letter_level-1] == score:
+            if letter_level != 3:
+                letter_level += 1
+                result["level"] = "u"+str(letter_level)
+            else:
+                result["level"] = "m"
+        else:
+            result["level"] = "n"
+
+
     return json.dumps(result)
 
 if __name__ == '__main__':
