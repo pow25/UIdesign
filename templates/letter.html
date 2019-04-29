@@ -6,52 +6,7 @@
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <script type="text/javascript" src="{{ url_for('static', filename = 'letter.js') }}"></script>
-    <style>
-        .blue{
-            background-color: aquamarine;
-            font-size: 40px;
-            font-weight: bolder;
-            padding: 15px;
-        }
-        #instruction{
-            font-size:40px;
-            font-weight: bold;
-            text-align: center;
-            padding-top: 5px;
-            padding-bottom: 5px;
-        }
-        #gif{
-            margin-left: auto;
-            margin-right: auto;
-            display: block;
-            height: 300px;
-            width: 300px;
-        }
-        .border_light{
-            border:2px solid darkgray; 
-        }
-        .dark{
-            background-color: gray; 
-        }
-        .answer{
-            z-index: -1;
-            height: 100px;
-            width: 320px;
-            padding: 10px;
-            border: 5px solid gray;
-            margin: 0; 
-            font-size: 40px;
-            font-weight: lighter;
-        }
-        .answer_letter{
-            font-weight: bolder;
-            color: black;
-            padding-right:10px;
-        }
-        .btn{
-            text-align:center;
-        }
-    </style>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='letter.css') }}">
 </head>
 <body>
     <script>

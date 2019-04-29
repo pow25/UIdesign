@@ -1,0 +1,44 @@
+.blue{
+    background-color: aquamarine;
+    font-size: 40px;
+    font-weight: bolder;
+    padding: 15px;
+}
+#instruction{
+    font-size:40px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+#gif{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    height: 300px;
+    width: 300px;
+}
+.border_light{
+    border:2px solid darkgray; 
+}
+.dark{
+    background-color: gray; 
+}
+.answer{
+    z-index: -1;
+    height: 100px;
+    width: 320px;
+    padding: 10px;
+    border: 5px solid gray;
+    margin: 0; 
+    font-size: 40px;
+    font-weight: lighter;
+}
+.answer_letter{
+    font-weight: bolder;
+    color: black;
+    padding-right:10px;
+}
+.btn{
+    text-align:center;
+}

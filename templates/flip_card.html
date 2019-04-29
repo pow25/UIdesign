@@ -7,39 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <script src="{{ url_for('static', filename = 'flip_card.js') }}"></script>
     <script src="{{ url_for('static', filename = 'jquery.flip.min.js') }}"></script>
-    <style>
-        #progressBar {
-            width: 90%;
-            margin: 10px auto;
-            height: 22px;
-            background-color: #0A5F44;
-        }
-        #progressBar div {
-            height: 100%;
-            text-align: right;
-            padding: 0 10px;
-            line-height: 22px; /* same as #progressBar height if we want text middle aligned */
-            width: 0;
-            background-color: #CBEA00;
-            box-sizing: border-box;
-        }
-        .img{
-            height: 100;
-            width: 100;
-        }
-        .padding{
-            padding: 10px;
-        }
-        .flip {
-            height: 100px;
-            width: 100px;
-            margin: 0 auto;
-        }
-        .status{
-            font-size: 30px;
-            color:blueviolet;
-        }
-    </style>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='flip_card.css') }}">
 </head>
 <body>
     <script>
