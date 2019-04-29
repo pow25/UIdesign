@@ -5,129 +5,23 @@
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-    <style>
-    body {
-        background: #3498db;
-        color: #9c9c9c;
-        font: 1rem "PT Sans", sans-serif;
-    }
-    div.foo{
-        width: 90%;
-        margin: 0 auto;
-        text-align: center;
-    }
-    .letter{
-        display: inline-block;
-        font-weight: 900;
-        font-size: 5em;
-        margin: 0.1em;
-        position: relative;
-        color: #00B4F1;
-        transform-style: preserve-3d;
-        perspective: 400;
-        z-index: 1;
-    }
-    .letter:before, .letter:after{
-        position:absolute;
-        content: attr(data-letter);
-        transform-origin: top left;
-        top:0;
-        left:0;
-    }
-    .letter, .letter:before, .letter:after{
-        transition: all 0.3s ease-in-out;
-    }
-    .letter:before{
-    color: #fff;
-    text-shadow: 
-        -1px 0px 1px rgba(14, 10, 10, 0.8),
-        1px 0px 1px rgba(0,0,0,.8);
-    z-index: 3;
-    transform:
-        rotateX(0deg)
-        rotateY(-15deg)
-        rotateZ(0deg);
-    }
-    .letter:after{
-    color: rgba(0,0,0,.11);
-    z-index:2;
-    transform:
-        scale(1.08,1)
-        rotateX(0deg)
-        rotateY(0deg)
-        rotateZ(0deg)
-        skew(0deg,1deg);
-    }
-    .letter:hover:before{
-    color: #fafafa;
-    transform:
-        rotateX(0deg)
-        rotateY(-40deg)
-        rotateZ(0deg);
-    }
-    .letter:hover:after{
-    transform:
-        scale(1.08,1)
-        rotateX(0deg)
-        rotateY(40deg)
-        rotateZ(0deg)
-        skew(0deg,22deg);
-    }
-    html,
-    body,
-    .container {
-        height: 100%;
-    }
-
-    a {
-        color: inherit;
-    }
-
-
-    .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .uppercase {
-        text-transform: uppercase;
-    }
-
-    .btn_primary {
-        display: inline-block;
-        background: transparent;
-        color: inherit;
-        font: inherit;
-        border: 0;
-        outline: 0;
-        padding: 0;
-        transition: all 200ms ease-in;
-        cursor: pointer;
-        background: #7f8ff4;
-        color: #fff;
-        box-shadow: 0 0 10px 2px rgba(0, 0, 0, .1);
-        border-radius: 2px;
-        padding: 12px 36px;
-        margin-left: -76px;
-    }
-
-    .form_field {	
-        width: 360px;
-        background: #fff;
-        color: #a3a3a3;
-        font: inherit;
-        box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
-        border: 0;
-        outline: 0;
-        padding: 22px 18px;
-    }
-    </style>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='log_in.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='pop_up.css') }}">
 </head>
 <body>
+    <script>
+        function myFunction() {
+            var popup = document.getElementById("myPopup");
+            popup.classList.toggle("show");
+        }
+    </script>
     <div class="container">
-        <div class="foo">
+        <div class="popup">
+            <span class="popuptext" id="myPopup">A memory training website that help train you memorization ability
+                about shape and letter, type you name to get started!
+            </span>
+        </div>
+        <div class="foo" onclick="myFunction()">
             <span class="letter" data-letter="MEMORY">MEMORY</span>
             <span class="letter" data-letter="TRAINING">TRAINING</span>
         </div>
