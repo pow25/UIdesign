@@ -25,7 +25,16 @@
             contentType: "application/json; charset=utf-8",
             data : JSON.stringify({"score":score,"type":"shape"}),
             success: function(result){
-                
+                var increased_process = result["increase"];
+                if (result["level"][0] == "u"){
+
+                }
+                else if (result["level"][0] == "m"){
+
+                }
+                else{
+                    
+                }
             },
             error: function(request, status, error){
                 console.log("Error");
@@ -41,7 +50,6 @@
         $("#btn_restart").click(function(){
             window.location.href = "/flip_card/"+time;
         });
-
     });
 </script>
 </html>
