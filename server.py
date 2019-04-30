@@ -11,8 +11,10 @@ shape_process = 0
 letter_process = 0
 letter_level = 1 
 user_id=[]
-with open('./static/gifs/answer.json') as json_file:  
-    answer = json.load(json_file)
+
+json_file = open('./static/gifs/answer.json',"r")  
+answer = json.load(json_file)
+json_file.close()
 
 @app.route('/index')
 def log_in():
@@ -24,7 +26,7 @@ def status():
     if not user_id:
         user_id.append(request.args.get('user_id'))
     
-    return render_template("status.html",user_id=user_id[0],letter_process=letter_process,shape_process=shape_process)
+    return render_template("status.html",user_id=user_id[0],shape_level=shape_level,letter_level=letter_level,letter_process=letter_process,shape_process=shape_process)
 
 @app.route("/before_shape")
 def before_shape():
@@ -66,7 +68,7 @@ def update_process():
         else:
             result["increase"] = increased_amount
         
-        if score == 16:
+        if score >= 14:
             if shape_level != 3:
                 shape_level += 1
                 result["level"] = "u"+str(shape_level)
@@ -81,7 +83,7 @@ def update_process():
         else:
             result["increase"] = increased_amount
 
-        if letter_max_score[letter_level-1] == score:
+        if score > letter_max_score[letter_level-1]-2:
             if letter_level != 3:
                 letter_level += 1
                 result["level"] = "u"+str(letter_level)
@@ -89,7 +91,6 @@ def update_process():
                 result["level"] = "m"
         else:
             result["level"] = "n"
-
 
     return json.dumps(result)
 

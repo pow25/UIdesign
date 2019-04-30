@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <style>
-        .container {
+        .container_inner {
             margin: 0 auto;
             margin-top: 50px;;
             width: 70vw;
@@ -20,37 +20,134 @@
         .padding{
             padding: 10px;
         }
+        .empty{
+            margin-top: 100px;
+        }
+        .button {
+            display: inline-block;
+            border-radius: 4px;
+            background-color: #555555;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 28px;
+            padding: 20px;
+            width: 200px;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+        .button:hover span {
+            padding-right: 25px;
+        }
+
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+        .icon {
+            position: absolute;
+            top: 10%;
+            left: 20%;
+            transform: translate(-50%,-50%);
+            width: 70px;
+            height: 60px;
+            cursor: pointer;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 25px;
+            width: 90%;
+            height: 10px;
+            background-color: grey;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+            animation: arrow 700ms linear infinite;
+        }
+
+        .arrow::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 10px;
+            top: -12px;
+            right: 33px;
+            background-color: gray;
+            transform: rotate(-45deg);
+        }
+
+        .arrow::before {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 10px;
+            top: 12px;
+            right: 33px;
+            background-color: gray;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+            transform: rotate(45deg);
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="row padding">
-            <h4>Training subject: Shape</h4>
-        </div>
-        <div class="row padding">
-            <h4 id="time"></h4>
-        </div>
-        <div class="row padding">
-            <h4 id="level"></h4>
-        </div>
-        <div class="row padding">
-            <h4>Type:flipping-cards</h4>
-            <p>When the mouse is hovering around the card, it will flip and show the shapes. When two flipping-cards 
-                with similar shapes are clicked, they will be canceled. Please cancel all 16 cards within giving time
-            period </p>
-        </div>
         <div class="row">
-            DEMO:
-            <video width="320" height="200" controls>
-                <source src="/static/other/intro_shape.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="row">
-            <div class="col">
-                <button id="btn_back">BACK</button>
+            <div class="col-md-1">
+                <div class="icon">
+                    <div class="arrow" id="btn_back"></div>
+                </div>
             </div>
-            <div class="col">
-                <button id="btn_start">START</button>
+            <div class="col-md-9">
+                <div class="container container_inner">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="row padding">
+                                <h4>Flipping cards</h4>
+                            </div>
+                            <div class="row padding">
+                                <h4 id="time"></h4>
+                            </div>
+                            <div class="row padding">
+                                <h4 id="level"></h4>
+                            </div>
+                            <div class="row padding">
+                                <p> When mouse is clicking the card, it will flip and selected. If two same cards are selected, they will cancel each other.Please cancel all 16 cards within giving time
+                                period </p>
+                            </div>
+                        </div>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-6">
+                            <div class="row">DEMO VIDEO:</div>
+                            <video width="320" height="200" controls>
+                                <source src="/static/other/intro_shape.mp4" type="video/mp4">
+                            </video>
+                            <div class="row empty"></div>
+                            <div class="row padding">
+                                <div class="col">
+                                    <button class="button" id="btn_start" style="vertical-align:middle"><span>Start</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
