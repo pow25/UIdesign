@@ -27,6 +27,14 @@
             font-weight: bolder;
             padding: 8px;
         }
+        .progress-box{
+            border: 5px solid grey;
+            margin: 10px;
+        }
+        .training-box{
+            border: 5px dashed gray;
+            margin: 10px;
+        }
     </style>
 </head>
 <body>
@@ -37,6 +45,9 @@
     </script>
     <div class="container">
         <div class="row">
+            Your current status:
+        </div>
+        <div class="row progress-box">
             <div class="col-md-2 user_id">
                 <img src="/static/other/user_head.png" height="130px" width="130px">
                 <br>
@@ -62,12 +73,18 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="container">
         <div class="row">
+            Select training to proceed
+        </div>
+        <div class="row training-box">
+            <img src="/static/other/shape_logo.jpg" width="150" height="150">
+            <button id="btn_shape">start training</button>
+        </div>
+        <div class="row training-box">
+            <img src="/static/other/letter_logo.png" width="150" height="150">
             <button id="btn_shape">start training</button>
         </div>
     </div>
 
 </body>
+</html>
