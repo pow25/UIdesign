@@ -2,7 +2,7 @@
     width: 90%;
     margin: 10px auto;
     height: 22px;
-    background-color: #0A5F44;
+    background-color: white;
 }
 #progressBar div {
     height: 100%;
@@ -10,7 +10,7 @@
     padding: 0 10px;
     line-height: 22px; /* same as #progressBar height if we want text middle aligned */
     width: 0;
-    background-color: #CBEA00;
+    background-color: skyblue;
     box-sizing: border-box;
 }
 .img{

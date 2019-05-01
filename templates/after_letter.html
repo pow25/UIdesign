@@ -6,39 +6,13 @@
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <style>
-        .container_inner {
-            margin: 0 auto;
-            margin-top: 50px;;
-            width: 70vw;
-            height: 85vh;
-            background: #F2F2F2;
-            border: 1px solid #ccc;
-            box-shadow: 1px 1px 2px #fff inset,
-                        -1px -1px 2px #fff inset;
-            border-radius: 3px/6px;         
-        }
-        .padding{
-            padding: 10px;
-        }
-        .empty{
-            margin-top: 100px;
-        }
+
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-9">
-                <div class="container container_inner">
-                    <div class="row" id="score"></div>
-                    <div class="row" id="level"></div>
-                    <div class="row" id="process"></div>
-                    <button id="btn_exit">EXIT</button>
-                    <button id="btn_restart">RESTART</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <h1 id="score"></h1>
+    <button id="btn_restart">restart</button>
+    <button id="btn_exit">exit</button>
 </body>
 <script>
     score = {{score|tojson}};
@@ -52,15 +26,14 @@
             data : JSON.stringify({"score":score,"type":"shape"}),
             success: function(result){
                 var increased_process = result["increase"];
-                $("#process").text("Your process of shape increased:"+increased_process);
                 if (result["level"][0] == "u"){
-                    $("#level").text("You have moved up to level:"+result["level"][1]);
+
                 }
                 else if (result["level"][0] == "m"){
-                    $("#level").text("Your have reached maximum level");
+
                 }
                 else{
-                    $("#level").text("Your score is not enough for upgrading");
+                    
                 }
             },
             error: function(request, status, error){
