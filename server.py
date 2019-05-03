@@ -5,6 +5,7 @@ import json
 app = Flask(__name__)
 
 shape_seconds = ["40","35","30"]
+letter_number=["5","7","10"]
 letter_max_score = [5,7,10]
 shape_level = 1
 shape_process = 0
@@ -30,11 +31,11 @@ def status():
 
 @app.route("/before_shape")
 def before_shape():
-    return render_template("before_shape.html",level = shape_level,seconds=shape_seconds[int(shape_level)-1])
+    return render_template("before_shape.html",level = shape_level,seconds=shape_seconds[shape_level-1])
 
 @app.route("/before_letter")
 def before_letter():
-    return render_template("before_letter.html",level = letter_level)
+    return render_template("before_letter.html",level = letter_level,number=letter_number[letter_level-1])
 
 @app.route("/flip_card/<seconds>")
 def flip_card(seconds):
@@ -46,11 +47,11 @@ def letter(level):
 
 @app.route("/after_shape/<score>")
 def after_shape(score):
-    return render_template("after_shape.html",score=score,seconds=shape_seconds[int(shape_level)-1])
+    return render_template("after_shape.html",score=score,seconds=shape_seconds[shape_level-1])
 
-@app.route("/after_letter/<score>")
-def after_letter(score):
-    return render_template("after_letter.html",score=score)
+@app.route("/after_letter/<score>/<answer>")
+def after_letter(score,answer):
+    return render_template("after_letter.html",answer=answer,score=score,level = letter_level,number=letter_number[letter_level-1])
 
 @app.route("/update_process",methods=["POST"])
 def update_process():

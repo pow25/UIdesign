@@ -1,0 +1,140 @@
+<html>
+<head>
+    <meta charset ="utf-8">
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <style>
+        .container_inner {
+            margin: 0 auto;
+            margin-top: 30px;;
+            width: 75vw;
+            height: 80vh;
+            background: #F2F2F2;
+            border: 1px solid #ccc;
+            box-shadow: 1px 1px 2px #fff inset,
+                        -1px -1px 2px #fff inset;
+            border-radius: 3px/6px;         
+        }
+        .padding{
+            padding: 10px;
+        }
+        .empty{
+            margin-top: 50px;
+        }
+        .font_size1{
+            font-size: 25px;
+            margin:15px;
+        }
+        .font_size2{
+            font-size: 17px;
+            padding:6px;
+        }
+        .button {
+            display: inline-block;
+            border-radius: 4px;
+            background-color: #555555;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 28px;
+            padding: 20px;
+            width: 200px;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin-left:55px;
+        }
+
+        .button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+        .button:hover span {
+            padding-right: 25px;
+        }
+
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/status">Status</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/before_shape">Shape <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/before_letter">Letter <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+        <div class="container container_inner">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row padding">
+                        <h1 class="display-4">Letter Memory</h1>
+                    </div>
+                    <div class="row padding"></div>
+                    <dl class="row font_size1">
+                        <dt class="col-sm-4">Number:</dt>
+                        <dd class="col-sm-8" id="number"></dd>
+                        <dt class="col-sm-4">Level:</dt>
+                        <dd class="col-sm-8" id="level"></dd>
+                        <dt class="col-sm-4">Time:</dt>
+                        <dd class="col-sm-8">twice</dd>
+                        <dt class="col-sm-4">Intro:</dt>
+                        <dd class="col-sm-8 font_size2">Once you click the "play" icon, the gif of {number} of letters will shown twice, "END." marks the end. You have to select correct number of letters from the list and place them in order shown in gif. </dd>
+                    </dl>                          
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-5">
+                    <div class="row padding"></div>
+                    <video width="340" height="220" controls>
+                        <source src="/static/other/intro_letter.mp4" type="video/mp4">
+                    </video>
+                    <div class="row empty"></div>
+                    <div class="row padding">
+                        <div class="col">
+                            <button class="button" id="btn_start" style="vertical-align:middle"><span>Start</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+<script>
+    level = {{level|tojson}};
+    number = {{number|tojson}};
+    $(document).ready(function() {
+        $("#number").text(number+" letters");
+        $("#level").text(level);
+        $("#btn_back").click(function(){
+            window.location.href = "/status";
+        });
+        $("#btn_start").click(function(){
+            window.location.href = "/letter/"+level;
+        });
+    });
+</script>
+</html>

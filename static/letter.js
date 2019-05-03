@@ -103,6 +103,6 @@ $(document).ready(function() {
                 score += 1;
             }
         }
-        
+        window.location.href = "/after_letter/"+score+"/"+answer;
     });
 });

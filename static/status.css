@@ -22,7 +22,7 @@
     border-bottom: 5px solid grey;
     border-top: 5px solid grey;
     margin-top: 30px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 .img_flip{
     height: 150px;
@@ -51,4 +51,8 @@
     width: 70px;
     height: auto;
     margin-top: 110px;
+}
+#user_name{
+    font-weight: bolder;
+    font-size:20px;
 }

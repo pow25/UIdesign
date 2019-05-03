@@ -14,14 +14,13 @@
     .font-bigger{
         font-size: 19px;
     }
+    .error{
+        color:red;
+        font-weight: bolder;
+        font-size: 24px;
+    }
 </style>
 <body>
-    <script>
-        function myFunction() {
-            var popup = document.getElementById("myPopup");
-            popup.classList.toggle("show");
-        }
-    </script>
     <div class="container">
         <div class="foo" onclick="myFunction()">
             <span class="letter" data-letter="MEMORY">MEMORY</span>
@@ -29,7 +28,7 @@
         </div>
         <div class="container__item">
             <form class="form">
-                <input type="text" id="log_in_input" class="form_field" placeholder="Type Name You Prefer"/>
+                <input type="text" id="log_in_input" class="form_field" placeholder="Type Your Name"/>
                 <button type="button" id="log_in_btn" class="btn btn_primary uppercase">GO!</button>
             </form>
         </div>
@@ -37,15 +36,24 @@
         </div>
         <blockquote class="blockquote text-right">
             <footer class="blockquote-footer font-bigger"><strong>A memory training website that help train you memorization ability
-                about shape and letter, type you name to get started!</strong>
+                of shape and letter, type your name to start!</strong>
             </footer>
         </blockquote>
+        <div class="error"></div>
     </div>
     <script>
         $(document).ready(function() {
             $("#log_in_btn").click(function(){
                 var user_id = $("#log_in_input").val();
-                window.location.href = "/status?" + "user_id="+user_id;
+                if ( user_id.length < 3 ){
+                    $(".error").text("Your name is too short!");
+                }
+                else if(/^[A-Za-z\s]+$/.test(user_id) == false){
+                    $(".error").text("Your name contains invalid characters!");
+                }
+                else{
+                    window.location.href = "/status?" + "user_id="+user_id;
+                }
             });
         });
     </script>
