@@ -6,8 +6,15 @@
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='log_in.css') }}">
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='pop_up.css') }}">
 </head>
+<style>
+    .empty{
+        padding: 20px;
+    }
+    .font-bigger{
+        font-size: 19px;
+    }
+</style>
 <body>
     <script>
         function myFunction() {
@@ -16,11 +23,6 @@
         }
     </script>
     <div class="container">
-        <div class="popup">
-            <span class="popuptext" id="myPopup">A memory training website that help train you memorization ability
-                about shape and letter, type you name to get started!
-            </span>
-        </div>
         <div class="foo" onclick="myFunction()">
             <span class="letter" data-letter="MEMORY">MEMORY</span>
             <span class="letter" data-letter="TRAINING">TRAINING</span>
@@ -31,6 +33,13 @@
                 <button type="button" id="log_in_btn" class="btn btn_primary uppercase">GO!</button>
             </form>
         </div>
+        <div class="empty">
+        </div>
+        <blockquote class="blockquote text-right">
+            <footer class="blockquote-footer font-bigger"><strong>A memory training website that help train you memorization ability
+                about shape and letter, type you name to get started!</strong>
+            </footer>
+        </blockquote>
     </div>
     <script>
         $(document).ready(function() {

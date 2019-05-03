@@ -1,0 +1,54 @@
+.progress{
+    margin: 15px;
+}
+.user_id{
+    text-align: center;
+}
+.progress-bar{
+    font-size: 24px;
+    font-weight: bolder;
+    color:gold;
+}
+.font_small{
+    position: relative;
+    top: 6px;
+    right:40px;
+    font-size: 22px;
+    margin: 11px;
+    font-weight: bolder;
+    padding: 8px;
+}
+.progress-box{
+    border-bottom: 5px solid grey;
+    border-top: 5px solid grey;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+.img_flip{
+    height: 150px;
+    width: 140px;
+    border: 5px solid black;
+    border-radius:25px;
+}
+.flip {
+    height: 150px;
+    width: 140px;
+    margin-top:20px;
+    margin-left: 80px;
+}
+#img_letter{
+    height: 150px;
+    width: 140px;
+    margin-top:20px;
+    margin-left: 80px;
+}
+.title{
+    font-weight: bolder;
+    font-size: 25px;
+    padding: 10px;
+}
+.arrow{
+    width: 70px;
+    height: auto;
+    margin-top: 110px;
+}

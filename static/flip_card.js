@@ -1,6 +1,9 @@
 function progress(timeleft, timetotal, $element) {
     var progressBarWidth = timeleft * $element.width() / timetotal;
     $element.find('div').animate({ width: progressBarWidth }, 500).html(timeleft%60);
+    if(timeleft < 10){
+        $("#time_bar").css('background-color', 'red');
+    }
     if(timeleft > 0) {
         setTimeout(function() {
             progress(timeleft - 1, timetotal, $element);
