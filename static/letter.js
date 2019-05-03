@@ -5,12 +5,7 @@ function makeNames() {
     $.each(name,function(index,value){
         var id = "#"+value;
         var new_row = "<img id='"+value+"' src='/static/letters/"+value+".jpg' width='70' height='70'>";
-        if ( index < 13 ){
-            $("#names").append(new_row);
-        }
-        else{
-            $("#names2").append(new_row);
-        }
+        $("#names").append(new_row);
         $(id).draggable({
             zIndex: 2500,
             cursor:"move",
@@ -34,6 +29,7 @@ function makeNames() {
             }
         );
     });
+    $(".answer").append("<div id='msg'>Drop Letters Here</div>");
 }
 
 $(document).ready(function() {
@@ -56,16 +52,17 @@ $(document).ready(function() {
             "ui-droppable-active": "ui-state-highlight"
         },
         over: function( event, ui ) { 
-            $(this).css("border","5px solid black");
+            $(this).css("border","5px dashed black");
         },
         out: function( event, ui ) {
-            $(this).css("border","5px solid gray");;
+            $(this).css("border","5px dashed gray");;
         },
         drop:function (event,ui) {
             //get dropped name
             var drop_name = $(ui.draggable).attr('id');
             user_answer.push(drop_name);
             $("#"+drop_name).remove();
+            $("#msg").remove();
             var new_row2 = "<span class='answer_letter'>"+drop_name+"</span>";
             $(".answer").append(new_row2);
         }
