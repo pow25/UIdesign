@@ -1,76 +1,7 @@
-body {
-    background: rgb(82, 178, 216);
-    color: #9c9c9c;
-    font: 1rem "PT Sans", sans-serif;
+.display-3{
+    margin-top: 80px;
+    margin-bottom:80px;
 }
-div.foo{
-    width: 90%;
-    margin: 0 auto;
-    text-align: center;
-}
-.letter{
-    display: inline-block;
-    font-weight: 900;
-    font-size: 5em;
-    margin: 0.1em;
-    position: relative;
-    color: #00B4F1;
-    transform-style: preserve-3d;
-    perspective: 400;
-    z-index: 1;
-}
-.letter:before, .letter:after{
-    position:absolute;
-    content: attr(data-letter);
-    transform-origin: top left;
-    top:0;
-    left:0;
-}
-.letter, .letter:before, .letter:after{
-    transition: all 0.3s ease-in-out;
-}
-.letter:before{
-color: #fff;
-text-shadow: 
-    -1px 0px 1px rgba(14, 10, 10, 0.8),
-    1px 0px 1px rgba(0,0,0,.8);
-z-index: 3;
-transform:
-    rotateX(0deg)
-    rotateY(-15deg)
-    rotateZ(0deg);
-}
-.letter:after{
-color: rgba(0,0,0,.11);
-z-index:2;
-transform:
-    scale(1.08,1)
-    rotateX(0deg)
-    rotateY(0deg)
-    rotateZ(0deg)
-    skew(0deg,1deg);
-}
-.letter:hover:before{
-color: #fafafa;
-transform:
-    rotateX(0deg)
-    rotateY(-40deg)
-    rotateZ(0deg);
-}
-.letter:hover:after{
-transform:
-    scale(1.08,1)
-    rotateX(0deg)
-    rotateY(40deg)
-    rotateZ(0deg)
-    skew(0deg,22deg);
-}
-html,
-body,
-.container {
-    height: 100%;
-}
-
 a {
     color: inherit;
 }
@@ -110,7 +41,7 @@ a {
     background: #fff;
     color: #a3a3a3;
     font: inherit;
-    box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+    box-shadow: 0px 6px 10px 8px rgba(0, 0, 0 , .1);
     border: 0;
     outline: 0;
     padding: 22px 18px;

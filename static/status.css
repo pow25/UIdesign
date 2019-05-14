@@ -7,7 +7,7 @@
 .progress-bar{
     font-size: 24px;
     font-weight: bolder;
-    color:gold;
+    color:white;
 }
 .font_small{
     position: relative;
@@ -20,15 +20,12 @@
 }
 .progress-box{
     border-bottom: 5px solid grey;
-    border-top: 5px solid grey;
-    margin-top: 30px;
+    margin-top: 20px;
     margin-bottom: 30px;
 }
 .img_flip{
     height: 150px;
     width: 140px;
-    border: 5px solid black;
-    border-radius:25px;
 }
 .flip {
     height: 150px;
