@@ -89,7 +89,7 @@
             data : JSON.stringify({"score":score,"type":"shape"}),
             success: function(result){
                 var increased_process = result["increase"];
-                $("#process").text("increase "+increased_process+"%");
+                $("#process").text("increase "+increased_process.toFixed(1)+"%");
                 if (result["level"][0] == "u"){
                     $("#level").text("increase to "+result["level"][1]);
                 }
